@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+
+{% block title %}
+
+{% endblock title %}
+
+    {% block body %}
+    <table>
+        <tr>
+          <th>ID</th>
+          <th>First name</th>
+          <th>Last name</th>
+          <th>Age</th>
+          <th></th>
+        </tr>
+
+          {% for student in students %}
+          <tr>
+            <td>{{student.id}}</td>
+            <td>{{student.f_name}}</td>
+            <td>{{student.l_name}}</td>
+            <td>{{student.age}}</td>
+            <td><a href="{%url 'delete_student' student.id%}"><button style="padding: 10px 20px;
+              background-color: red;
+              border: none;
+              border-radius: 5px;
+              color: white;
+              font-size: 16px;
+              cursor: pointer;
+              transition: 0.3s;
+              width: 50%;">Delete</button></td>
+              <td><a href="{%url 'update' student.id%}"><button style="padding: 10px 20px;
+                background-color: #4CAF50;
+                border: none;
+                border-radius: 5px;
+                color: white;
+                font-size: 16px;
+                cursor: pointer;
+                transition: 0.3s;
+                width: 50%;">Update</button></td> 
+          </tr>
+         
+          {% endfor %}
+    </table>
+            <div style="text-align: center; margin-top: 100px;">
+            <a href="{%url 'create'%}" ><button style="padding: 10px 20px;
+              background-color: #4CAF50;
+              border: none;
+              border-radius: 5px;
+              color: white;
+              font-size: 16px;
+              cursor: pointer;
+              transition: 0.3s;
+              width: 15%;">create new student</button>
+            </div>
+{% endblock body %}
